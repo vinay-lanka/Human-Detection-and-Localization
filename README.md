@@ -7,7 +7,7 @@ This repository contains the deliverables for the Midterm Project of **Vikram Se
 ### Phase 0 Deliverables
 The Phase 0 project report, `Reports/Phase 0 Proposal.pdf` elicits the detailed plan, vision, along with implementation specifics for the project. All aspects of the standard software plan are covered and explained in the analysis.
 
-The quad chart for this project, `Phase 0 Quad Chart.pdf`describes the product, stakeholders, capabilities, and measures of success for the project. It is an important aspect of the Agile Iterative Process (AIP) methodology that would be followed throughout the duration of the project.
+The quad chart for this project, `Reports/Phase 0 Quad Chart.pdf`describes the product, stakeholders, capabilities, and measures of success for the project. It is an important aspect of the Agile Iterative Process (AIP) methodology that would be followed throughout the duration of the project.
 
 Further, a short video providing a brief overview of the project and the details explained in the report and quad chart is embedded below.
 
