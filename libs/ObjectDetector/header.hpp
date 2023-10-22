@@ -1,3 +1,13 @@
+/**
+ * @file header.hpp
+ * @author Vikram Setty (vikrams@umd.edu)
+ * @brief This file contains the skeleton of the 'Detector' class which performs human detection using YOLO v5 in HDAL.
+ * @version 0.1
+ * @date 2023-10-22
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include <opencv2/opencv.hpp>
 #include <onnxruntime_cxx_api.h>
 #include <string>
@@ -5,6 +15,10 @@
 
 #pragma once
 
+/**
+ * @brief The 'Detector' class takes a video frame, preprocesses it, runs it through YOLO v5, postprocesses it, and returns the final image and bounding box information.
+ * 
+ */
 class Detector{
 
     private:
