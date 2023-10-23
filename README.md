@@ -18,6 +18,8 @@ The authors of HDAL are Vikram Setty and Vinay Lanka, both robotics graduate stu
 
 Vikram is from Hyderabad, India and has done his bachelor's and master's degree with a major in mechanical engineering and a minor in computer science from IIT Ropar. His research interests include perception, navigation and path planning for robotics and autonomous systems. He is also interested in various areas in artificial intelligence and machine learning, especially computer vision and reinforcement learning.
 
+Vinay is from Hyderabad, India and has done his bachelor's degree majoring in Electronics and Communication Engineering from VIT Vellore. He has 2 years of work experience in Robotics, having worked as a Robotics Engineer in Newspace Research and Technologies (Defence Aerospace) and as a R&D Engineer in Neoflux. He's interested in the areas of perception and planning of robots and also shares the common interest of Deep Learning and Computer Vision, especially in the field of Robotics.
+
 ### AIP Workflow Used
 This project was developed using the Agile Development Process (AIP) along with pair programming (with a driver and navigator), with a focus on test-driven development (TDD). [This](https://docs.google.com/spreadsheets/d/1gvZUOzwOqA3FOt5ZHsv915nfBdFb774tYE5_qxB7flM/edit?usp=sharing) sheet has the product backlog, iteration backlogs, and work log for each task done to develop HDAL. The end of each iteration is even tagged to distingish each sprint. Further, the link to th sprint planning notes devised to plan each sprint to develop HDAL in th most efficient way possible is attached [here](https://docs.google.com/document/d/1QYD2clcA70ukrI24V-6_yM0eB3UJxSPIeIFpcA2wneI/edit?usp=sharing).
 
