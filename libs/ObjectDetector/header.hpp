@@ -8,8 +8,9 @@
  * @copyright Copyright (c) 2023
  * 
  */
+#include <opencv2/imgproc.hpp>
 #include <opencv2/opencv.hpp>
-#include <onnxruntime_cxx_api.h>
+#include <opencv2/dnn.hpp>
 #include <string>
 #include <vector>
 
@@ -30,13 +31,8 @@ class Detector{
         std::vector<int> input_tesor_shape ;
         std::vector<int> output_tensor_shape ;
         std::vector<int> resized_img_shape ;
-        std::vector<std::string> ort_input_names ;
-        std::vector<std::string> ort_output_names ;
-        Ort::Env env ;
-        Ort::SessionOptions sessionoptions ;
-        Ort::Session session ;
         void preprocess_img(cv::Mat &img) ;
-        std::vector<float> postprocess_img(std::vector<Ort::Value> model_output) ;
+        std::vector<float> postprocess_img(cv::Mat &img, cv::Mat &model_output) ;
     public:
         Detector(std::string yolo_model_path, cv::Size yolo_img_size, float confidence_threshold, float iou_threshold) ;
         std::vector<float> detect_humans(cv::Mat &img) ;
