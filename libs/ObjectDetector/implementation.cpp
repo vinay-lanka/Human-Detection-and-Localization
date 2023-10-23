@@ -31,10 +31,11 @@ void Detector::preprocess_img(cv::Mat &img){
 /**
  * @brief The function that postprocesses (analyze output tensor, draw bounding boxes, etc) the image (video frame) after running it through YOLO v5.
  * 
- * @param model_output The output tensor on running the video frame through YOLO v5.
- * @return * std::vector<float> The detection information (confidences, positions, bounding boxes, etc)
+ * @param img The original image (video frame)
+ * @param model_output The final detection information that is to be fed to the object tracker
+ * @return * std::vector<float> 
  */
-std::vector<float> Detector::postprocess_img(std::vector<Ort::Value> model_output){
+std::vector<float> Detector::postprocess_img(cv::Mat &img, cv::Mat &model_output){
     std::vector<float> temp ;
     return temp ;
 }
