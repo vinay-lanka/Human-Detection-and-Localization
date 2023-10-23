@@ -1,5 +1,5 @@
 /**
- * @file header.hpp
+ * @file tracker_header.hpp
  * @author Vinay Lanka (vlanka@umd.edu)
  * @brief Header definitions of the Geometric CV classes to convert pixels to coordinates
  * @version 0.1

@@ -1,5 +1,5 @@
 /**
- * @file implementation.cpp
+ * @file tracker_implementation.cpp
  * @author Vinay Lanka (vlanka@umd.edu)
  * @brief Implementation of the Geometric CV classes to convert pixels to coordinates
  * @version 0.1
@@ -9,7 +9,7 @@
  * 
  */
 
-#include "header.hpp"
+#include "tracker_header.hpp"
 
 Tracker::Tracker(float height, float focal_length, int fov, std::vector<std::vector<int>> resolution){
 }
