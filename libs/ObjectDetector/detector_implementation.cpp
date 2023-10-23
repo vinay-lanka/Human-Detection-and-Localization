@@ -1,5 +1,5 @@
 /**
- * @file implementation.cpp
+ * @file detector_implementation.cpp
  * @author Vikram Setty (vikrams@umd.edu)
  * @brief This file contains the implementations for each of the instace member functions of the 'Detector' class of HDAL's human detector.
  * @version 0.1
@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2023
  * 
  */
-#include "header.hpp"
+#include "detector_header.hpp"
 
 /**
  * @brief The constructor of 'Detector' that initializes ONNX (ORT) runtime and other system variables.

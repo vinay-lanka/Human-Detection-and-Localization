@@ -1,5 +1,5 @@
 /**
- * @file header.hpp
+ * @file detector_header.hpp
  * @author Vikram Setty (vikrams@umd.edu)
  * @brief This file contains the skeleton of the 'Detector' class which performs human detection using YOLO v5 in HDAL.
  * @version 0.1
