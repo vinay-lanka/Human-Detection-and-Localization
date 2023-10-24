@@ -1,5 +1,9 @@
 # Human-Detection-and-Localization
 
+[![HDAL Tests and CodeCov Report](https://github.com/vinay-lanka/Human-Detection-and-Localization/actions/workflows/test.yaml/badge.svg)](https://github.com/vinay-lanka/Human-Detection-and-Localization/actions/workflows/test.yaml)
+[![codecov](https://codecov.io/gh/vinay-lanka/Human-Detection-and-Localization/graph/badge.svg?token=fQ4Z6RwMFH)](https://codecov.io/gh/vinay-lanka/Human-Detection-and-Localization)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 **HDAL**: A robust perception stack for delivery robots to navigate sidewalks by detecting and localizing human obstacles.
 
 This repository contains the deliverables for the Midterm Project of **Vikram Setty** (119696897) and **Vinay Lanka** (12041665) as a part of the course *ENPM808X: Software Development for Robotics* at the University of Maryland.
@@ -21,26 +25,21 @@ Vikram is from Hyderabad, India and has done his bachelor's and master's degree 
 Vinay is from Hyderabad, India and has done his bachelor's degree majoring in Electronics and Communication Engineering from VIT Vellore. He has 2 years of work experience in Robotics, having worked as a Robotics Engineer in Newspace Research and Technologies (Defence Aerospace) and as a R&D Engineer in Neoflux. He's interested in the areas of perception and planning of robots and also shares the common interest of Deep Learning and Computer Vision, especially in the field of Robotics.
 
 ### AIP Workflow Used
-This project was developed using the Agile Development Process (AIP) along with pair programming (with a driver and navigator), with a focus on test-driven development (TDD). [This](https://docs.google.com/spreadsheets/d/1gvZUOzwOqA3FOt5ZHsv915nfBdFb774tYE5_qxB7flM/edit?usp=sharing) sheet has the product backlog, iteration backlogs, and work log for each task done to develop HDAL. The end of each iteration is even tagged to distingish each sprint. Further, the link to th sprint planning notes devised to plan each sprint to develop HDAL in th most efficient way possible is attached [here](https://docs.google.com/document/d/1QYD2clcA70ukrI24V-6_yM0eB3UJxSPIeIFpcA2wneI/edit?usp=sharing).
+This project was developed using the Agile Development Process (AIP) along with pair programming (with a driver and navigator), with a focus on test-driven development (TDD). [This](https://docs.google.com/spreadsheets/d/1gvZUOzwOqA3FOt5ZHsv915nfBdFb774tYE5_qxB7flM/edit?usp=sharing) sheet has the product backlog, iteration backlogs, and work log for each task done to develop HDAL. The end of each iteration is even tagged to distingish each sprint. Further, the link to the sprint planning and review meeting notes devised to overview each iteration sprint to develop HDAL in the most efficient way possible is attached [here](https://docs.google.com/document/d/1QYD2clcA70ukrI24V-6_yM0eB3UJxSPIeIFpcA2wneI/edit?usp=sharing).
+
+The latest (Phase 1) developed UML class and actibity diagrams can be found in the `UML/initial-phase-1` directory. The earlier devised UML diagrams as a part of Phase 0 are available in the `UML/initial-phase-0` directory. 
 
 A short video providing a brief overview of the project and the details explaining the AIP process used is embedded below. A direct link to the same can also be found [here]().
 
 [![Video](https://i3.ytimg.com/vi/uGA3f2nemRw/maxresdefault.jpg)](https://www.youtube.com/watch?v=uGA3f2nemRw)
 
 ### Installing Dependencies
-To install the dependencies for this project (ONNX, OpenCV, and Eigen), a thorough build and install of OpenCV using the following commands should suffice (as stated in OpenCV's official [website](https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html)). Make sure to run these commands outside this projcet's working directory to prevent confusion with the project's 'build' directory.
+To install the dependencies for this project (ONNX, OpenCV, and Eigen), simply run the two commands below on an Ubuntu system (confirmed to work on Ubuntu 22.04).
 ```sh
-# Prepare for the new installation by updating previous packages
-  sudo apt update && sudo apt install -y cmake g++ wget unzip
-# Download and unpack the new packages from the source
-  wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip
-unzip opencv.zip
-# Create the 'build' directory:
-  mkdir -p build && cd build
-# Configure the package:
-  cmake ../opencv-4.x
-# Build the package:
-  cmake --build .
+# Install OpenCV with root privelages:
+  sudo apt install libopencv-dev
+# Install Eigen with root privelages:
+  sudo apt install libeigen3-dev
 ```
 
 ### Building the Code
@@ -139,9 +138,9 @@ On running the above command, you should see the same output in the `results/cpp
 
 ## Phase 0
 
-The Phase 0 project report, `Reports/Phase 0 Proposal.pdf` elicits the detailed plan, vision, along with implementation specifics for the project. All aspects of the standard software plan are covered and explained in the analysis.
+The Phase 0 project report, `Proposal/Phase 0 Proposal.pdf` elicits the detailed plan, vision, along with implementation specifics for the project. All aspects of the standard software plan are covered and explained in the analysis.
 
-The quad chart for this project, `Reports/Phase 0 Quad Chart.pdf`describes the product, stakeholders, capabilities, and measures of success for the project. It is an important aspect of the Agile Iterative Process (AIP) methodology that would be followed throughout the duration of the project.
+The quad chart for this project, `Proposal/Phase 0 Quad Chart.pdf`describes the product, stakeholders, capabilities, and measures of success for the project. It is an important aspect of the Agile Iterative Process (AIP) methodology that would be followed throughout the duration of the project.
 
 Further, a short video providing a brief overview of the project and the details explained in the report and quad chart is embedded below.
 
