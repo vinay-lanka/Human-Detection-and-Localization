@@ -1,9 +1,7 @@
 # Human-Detection-and-Localization
 
 [![HDAL Tests and CodeCov Report](https://github.com/vinay-lanka/Human-Detection-and-Localization/actions/workflows/test.yaml/badge.svg)](https://github.com/vinay-lanka/Human-Detection-and-Localization/actions/workflows/test.yaml)
-
-
-
+[![codecov](https://codecov.io/gh/vinay-lanka/Human-Detection-and-Localization/graph/badge.svg?token=fQ4Z6RwMFH)](https://codecov.io/gh/vinay-lanka/Human-Detection-and-Localization)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 **HDAL**: A robust perception stack for delivery robots to navigate sidewalks by detecting and localizing human obstacles.
@@ -140,9 +138,9 @@ On running the above command, you should see the same output in the `results/cpp
 
 ## Phase 0
 
-The Phase 0 project report, `Reports/Phase 0 Proposal.pdf` elicits the detailed plan, vision, along with implementation specifics for the project. All aspects of the standard software plan are covered and explained in the analysis.
+The Phase 0 project report, `Proposal/Phase 0 Proposal.pdf` elicits the detailed plan, vision, along with implementation specifics for the project. All aspects of the standard software plan are covered and explained in the analysis.
 
-The quad chart for this project, `Reports/Phase 0 Quad Chart.pdf`describes the product, stakeholders, capabilities, and measures of success for the project. It is an important aspect of the Agile Iterative Process (AIP) methodology that would be followed throughout the duration of the project.
+The quad chart for this project, `Proposal/Phase 0 Quad Chart.pdf`describes the product, stakeholders, capabilities, and measures of success for the project. It is an important aspect of the Agile Iterative Process (AIP) methodology that would be followed throughout the duration of the project.
 
 Further, a short video providing a brief overview of the project and the details explained in the report and quad chart is embedded below.
 
