@@ -1,0 +1,2 @@
+add_executable(HDAL_demo main.cpp)
+target_link_libraries(HDAL_demo PUBLIC detector_lib tracker_lib)
