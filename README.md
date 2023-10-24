@@ -36,20 +36,11 @@ A short video providing a brief overview of the project and the details explaini
 [![Video](https://i3.ytimg.com/vi/uGA3f2nemRw/maxresdefault.jpg)](https://www.youtube.com/watch?v=uGA3f2nemRw)
 
 ### Installing Dependencies
-To install the dependencies for this project (ONNX, OpenCV, and Eigen), a thorough build and install of OpenCV followed y intsalling Eigen using the following commands should suffice (as per [OpenCV's](https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html) official website and [this](https://robots.uc3m.es/installation-guides/install-eigen.html) Eigen install tutorial). Make sure to run these commands outside this projcet's working directory in an Ubuntu system to prevent confusion with the project's 'build' directory.
+To install the dependencies for this project (ONNX, OpenCV, and Eigen), simply run the two commands below on an Ubuntu system (confirmed to work on Ubuntu 22.04).
 ```sh
-# Prepare for the new installation of OpenCV by updating previous packages
-  sudo apt update && sudo apt install -y cmake g++ wget unzip
-# Download and unpack the new packages from the source
-  wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip
-unzip opencv.zip
-# Create the 'build' directory:
-  mkdir -p build && cd build
-# Configure the package:
-  cmake ../opencv-4.x
-# Build the package:
-  cmake --build .
-# Build the package:
+# Install OpenCV with root privelages:
+  sudo apt install libopencv-dev
+# Install Eigen with root privelages:
   sudo apt install libeigen3-dev
 ```
 
