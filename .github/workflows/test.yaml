@@ -31,8 +31,9 @@ jobs:
           sudo apt install -y doxygen lcov gcovr
       
       - name: Dependency
-        run: sudo apt install libopencv-dev
-        run: sudo apt install libeigen3-dev
+        run: |
+          sudo apt install libopencv-dev
+          sudo apt install libeigen3-dev
           
       # Build, run unit test, and generate coverage report
       - name: Configure CMake flags and build exectables
