@@ -18,17 +18,21 @@ The authors of HDAL are Vikram Setty and Vinay Lanka, both robotics graduate stu
 
 Vikram is from Hyderabad, India and has done his bachelor's and master's degree with a major in mechanical engineering and a minor in computer science from IIT Ropar. His research interests include perception, navigation and path planning for robotics and autonomous systems. He is also interested in various areas in artificial intelligence and machine learning, especially computer vision and reinforcement learning.
 
+Vinay is from Hyderabad, India and has done his bachelor's degree majoring in Electronics and Communication Engineering from VIT Vellore. He has 2 years of work experience in Robotics, having worked as a Robotics Engineer in Newspace Research and Technologies (Defence Aerospace) and as a R&D Engineer in Neoflux. He's interested in the areas of perception and planning of robots and also shares the common interest of Deep Learning and Computer Vision, especially in the field of Robotics.
+
 ### AIP Workflow Used
-This project was developed using the Agile Development Process (AIP) along with pair programming (with a driver and navigator), with a focus on test-driven development (TDD). [This](https://docs.google.com/spreadsheets/d/1gvZUOzwOqA3FOt5ZHsv915nfBdFb774tYE5_qxB7flM/edit?usp=sharing) sheet has the product backlog, iteration backlogs, and work log for each task done to develop HDAL. The end of each iteration is even tagged to distingish each sprint. Further, the link to th sprint planning notes devised to plan each sprint to develop HDAL in th most efficient way possible is attached [here](https://docs.google.com/document/d/1QYD2clcA70ukrI24V-6_yM0eB3UJxSPIeIFpcA2wneI/edit?usp=sharing).
+This project was developed using the Agile Development Process (AIP) along with pair programming (with a driver and navigator), with a focus on test-driven development (TDD). [This](https://docs.google.com/spreadsheets/d/1gvZUOzwOqA3FOt5ZHsv915nfBdFb774tYE5_qxB7flM/edit?usp=sharing) sheet has the product backlog, iteration backlogs, and work log for each task done to develop HDAL. The end of each iteration is even tagged to distingish each sprint. Further, the link to the sprint planning and review meeting notes devised to overview each iteration sprint to develop HDAL in the most efficient way possible is attached [here](https://docs.google.com/document/d/1QYD2clcA70ukrI24V-6_yM0eB3UJxSPIeIFpcA2wneI/edit?usp=sharing).
+
+The latest (Phase 1) developed UML class and actibity diagrams can be found in the `UML/initial-phase-1` directory. The earlier devised UML diagrams as a part of Phase 0 are available in the `UML/initial-phase-0` directory. 
 
 A short video providing a brief overview of the project and the details explaining the AIP process used is embedded below. A direct link to the same can also be found [here]().
 
 [![Video](https://i3.ytimg.com/vi/uGA3f2nemRw/maxresdefault.jpg)](https://www.youtube.com/watch?v=uGA3f2nemRw)
 
 ### Installing Dependencies
-To install the dependencies for this project (ONNX, OpenCV, and Eigen), a thorough build and install of OpenCV using the following commands should suffice (as stated in OpenCV's official [website](https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html)). Make sure to run these commands outside this projcet's working directory to prevent confusion with the project's 'build' directory.
+To install the dependencies for this project (ONNX, OpenCV, and Eigen), a thorough build and install of OpenCV followed y intsalling Eigen using the following commands should suffice (as per [OpenCV's](https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html) official website and [this](https://robots.uc3m.es/installation-guides/install-eigen.html) Eigen install tutorial). Make sure to run these commands outside this projcet's working directory in an Ubuntu system to prevent confusion with the project's 'build' directory.
 ```sh
-# Prepare for the new installation by updating previous packages
+# Prepare for the new installation of OpenCV by updating previous packages
   sudo apt update && sudo apt install -y cmake g++ wget unzip
 # Download and unpack the new packages from the source
   wget -O opencv.zip https://github.com/opencv/opencv/archive/4.x.zip
@@ -39,6 +43,8 @@ unzip opencv.zip
   cmake ../opencv-4.x
 # Build the package:
   cmake --build .
+# Build the package:
+  sudo apt install libeigen3-dev
 ```
 
 ### Building the Code
