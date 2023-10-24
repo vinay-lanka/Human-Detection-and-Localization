@@ -29,9 +29,9 @@ This project was developed using the Agile Development Process (AIP) along with 
 
 The latest (Phase 1) developed UML class and activity diagrams can be found in the `UML/initial-phase-1` directory. The earlier devised UML diagrams as a part of Phase 0 are available in the `UML/initial-phase-0` directory. 
 
-A short video providing a brief overview of the project and the details explaining the AIP process used is embedded below. A direct link to the same can also be found [here]().
+A short video providing a brief overview of the project and the details explaining the AIP process used is embedded below. A direct link to the same can also be found [here](https://www.youtube.com/watch?v=Eoj4YyOxvfU).
 
-[![Video](https://i3.ytimg.com/vi/uGA3f2nemRw/maxresdefault.jpg)](https://www.youtube.com/watch?v=uGA3f2nemRw)
+[![Video](https://i3.ytimg.com/vi/Eoj4YyOxvfU/maxresdefault.jpg)](https://www.youtube.com/watch?v=Eoj4YyOxvfU)
 
 ### Installing Dependencies
 To install the dependencies for this project (ONNX, OpenCV, and Eigen), simply run the two commands below on an Ubuntu system (confirmed to work on Ubuntu 22.04).
