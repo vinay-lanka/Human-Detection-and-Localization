@@ -1,4 +1,4 @@
-name: HDAL Tests and CodeCov Report
+name: HDAL Tests
 
 on:
   # Triggered whenever push to main 
