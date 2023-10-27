@@ -12,10 +12,31 @@
 
 #include "tracker_header.hpp"
 
+/**
+ * @brief Construct a new Tracker:: Tracker object
+ * 
+ * @param height 
+ * @param focal_length 
+ * @param fov 
+ * @param resolution 
+ */
+
 Tracker::Tracker(float height, float focal_length, int fov,
                  std::vector<std::vector<int>> resolution) {}
 
+/**
+ * @brief Destroy the Tracker:: Tracker object
+ * 
+ */
+
 Tracker::~Tracker() {}
+
+/**
+ * @brief Convert pixels to the camera coordinate frame
+ * 
+ * @param prediction_pixels 
+ * @return Eigen::VectorXd 
+ */
 
 Eigen::VectorXd Tracker::pixel_to_camera_frame(
     std::vector<std::vector<int>> prediction_pixels) {
