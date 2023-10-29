@@ -12,10 +12,15 @@
 #include <opencv2/dnn.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/opencv.hpp>
-#include <string>
-#include <vector>
 
 #pragma once
+
+struct DetectorOutput{
+
+  std::vector<cv::Point> pixels ;
+  cv::Mat boxed_img ;
+
+} ;
 
 /**
  * @brief The 'Detector' class takes a video frame, preprocesses it, runs it
@@ -25,20 +30,23 @@
  */
 class Detector {
  private:
-  std::string yolo_model_path;
+  cv::dnn::Net yolo_model;
   cv::Size yolo_img_size;
   cv::Size original_img_size;
-  float confidence_threshold;
-  float iou_threshold;
-  std::vector<int> input_tesor_shape;
-  std::vector<int> output_tensor_shape;
-  std::vector<int> resized_img_shape;
-  void preprocess_img(cv::Mat &img);
-  std::vector<float> postprocess_img(cv::Mat &img, cv::Mat &model_output);
+  const float confidence_threshold;
+  const float nms_threshold;
+  const float score_threshold;
+  const int yolo_grid_cells;
+  cv::Mat img ;
+  cv::Mat boxed_img ;
+  std::vector<std::string> yolo_classes ;
+  cv::Mat preprocess_img();
+  void draw_bounding_boxes(std::vector<cv::Rect> boxes, std::vector<float> confidence_values) ;
+  DetectorOutput postprocess_img(std::vector<cv::Mat> yolo_outputs);
 
  public:
-  Detector(std::string yolo_model_path, cv::Size yolo_img_size,
-           float confidence_threshold, float iou_threshold);
-  std::vector<float> detect_humans(cv::Mat &img);
+  Detector(cv::dnn::Net yolo_model, int yolo_img_width, int yolo_img_height,
+           float confidence_threshold, float nms_threshold, float score_threshold, int yolo_grid_cells,std::vector<std::string> yolo_classes);
+  DetectorOutput detect_humans(cv::Mat video_frame);
   ~Detector();
 };
