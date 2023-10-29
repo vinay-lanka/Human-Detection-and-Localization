@@ -10,27 +10,29 @@
  *
  */
 
-#include <Eigen/Dense>
 #include <opencv2/opencv.hpp>
 #include <vector>
 
 #pragma once
 
+/**
+ * @brief Tracker class that converts prediction_pixels to the camera coordinate frame
+ * 
+ */
+
 class Tracker {
  private:
-  Eigen::Matrix<float, 3, 4> camera_matrix;
-  Eigen::VectorXd pixel_coordinates[2];
-  Eigen::Vector3d real_world_coordinates;
-  float height;
-  float focal_length;
-  int fov;
-  std::vector<std::vector<int>> resolution;
-  std::vector<std::vector<int>> prediction_pixels;
-
+  float _height;
+  float _focal_length;
+  float _hfov;
+  float _vfov;
+  float _pixel_size;
+  std::vector<int> _resolution;
+  float degrees_to_radians(float);
+  float radians_to_degrees(float radians);
  public:
-  Eigen::VectorXd pixel_to_camera_frame(
-      std::vector<std::vector<int>> prediction_pixels);
-  Tracker(float height, float focal_length, int fov,
-          std::vector<std::vector<int>> resolution);
+  std::vector<std::vector<float>> pixel_to_camera_frame(std::vector<cv::Point> prediction_pixels);
+  cv::Mat plot_coordinates(std::vector<cv::Point>  prediction_pixels, std::vector<std::vector<float>> coordinates, cv::Mat frame);
+  Tracker(float height, float focal_length, float hfov, float vfov,std::vector<int> resolution, float pixel_size);
   ~Tracker();
 };
