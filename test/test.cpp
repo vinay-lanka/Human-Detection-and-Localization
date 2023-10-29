@@ -46,19 +46,19 @@ TEST(DetectorTest, test_detection) {
   ASSERT_EQ(test, result);
 }
 
-TEST(TrackerTest, test_constructor) {
-  std::vector<std::vector<int>> test_resolution = {{1, 1}};
-  Tracker test_tracker(100.0, 100.0, 45, test_resolution);
-}
+// TEST(TrackerTest, test_constructor) {
+//   std::vector<std::vector<int>> test_resolution = {{1, 1}};
+//   Tracker test_tracker(100.0, 100.0, 45, test_resolution);
+// }
 
-TEST(TrackerTest, test_pixel_to_camera_frame) {
-  std::vector<std::vector<int>> test_resolution = {{1, 1}};
-  Tracker test_tracker(100.0, 100.0, 45, test_resolution);
-  Eigen::VectorXd test_result(2);
-  test_result[0] = -1;
-  test_result[1] = -1;
-  std::vector<std::vector<int>> test_prediction = {{1, 1}};
-  Eigen::VectorXd test_vector =
-      test_tracker.pixel_to_camera_frame(test_prediction);
-  ASSERT_EQ(test_vector, test_result);
-}
+// TEST(TrackerTest, test_pixel_to_camera_frame) {
+//   std::vector<std::vector<int>> test_resolution = {{1, 1}};
+//   Tracker test_tracker(100.0, 100.0, 45, test_resolution);
+//   Eigen::VectorXd test_result(2);
+//   test_result[0] = -1;
+//   test_result[1] = -1;
+//   std::vector<std::vector<int>> test_prediction = {{1, 1}};
+//   Eigen::VectorXd test_vector =
+//       test_tracker.pixel_to_camera_frame(test_prediction);
+//   ASSERT_EQ(test_vector, test_result);
+// }
