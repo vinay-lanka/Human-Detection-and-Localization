@@ -31,8 +31,8 @@ class Tracker {
   float degrees_to_radians(float);
   float radians_to_degrees(float radians);
  public:
-  std::vector<std::vector<float>> pixel_to_camera_frame(std::vector<std::vector<int>> prediction_pixels);
-  cv::Mat plot_coordinates(std::vector<std::vector<int>> prediction_pixels, std::vector<std::vector<float>> coordinates, cv::Mat frame);
+  std::vector<std::vector<float>> pixel_to_camera_frame(std::vector<cv::Point> prediction_pixels);
+  cv::Mat plot_coordinates(std::vector<cv::Point>  prediction_pixels, std::vector<std::vector<float>> coordinates, cv::Mat frame);
   Tracker(float height, float focal_length, float hfov, float vfov,std::vector<int> resolution, float pixel_size);
   ~Tracker();
 };

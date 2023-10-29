@@ -52,7 +52,7 @@ int main() {
         if (frame.empty())
             break;
         //Detector method comes here to populate prediction pixels
-        std::vector<std::vector<int>> prediction_pixels = {{0,540},{640,540}};
+        std::vector<cv::Point> prediction_pixels = {cv::Point(0,540),cv::Point(640,540)};
         //Calling tracker method for coordinates in camera frame
         std::vector<std::vector<float>> coordinates = human_tracker->pixel_to_camera_frame(prediction_pixels);
         //Plot coordinates on frame
