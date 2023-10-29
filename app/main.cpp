@@ -1,25 +1,25 @@
-
+/**
+ * @file main.cpp
+ * @author Vikram Setty (vikrams@umd.edu)
+ * @author Vinay Lanka (vlanka@umd.edu)
+ * @brief A demo run of HDAL running on a webcam. This file shows how the detector and tracker come together for running HDAL. This demo has been tested on a Lenovo FHD300 webcam attached externally to a computer system.
+ * @version 0.1
+ * @date 2023-10-29
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include <iostream>
 #include <fstream>
 #include "detector_header.hpp"
 #include "tracker_header.hpp"
 
-#include <opencv2/core.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/highgui.hpp>
-#include <opencv2/imgproc.hpp>
-#include <opencv2/videoio.hpp>
-
-using namespace std;
-
 
 //Parameters to initialise detector object
 const std::string CLASSLIST_PATH = "../data/coco.names" ;
 const std::string MODEL_PATH = "../model/yolov5s.onnx" ;
-
 const float YOLO_IMG_WIDTH = 640.0 ;
 const float YOLO_IMG_HEIGHT = 640.0 ;
-
 const float CONFIDENCE_THRESHOLD = 0.45 ;
 const float NMS_THRESHOLD = 0.45 ;
 const float SCORE_THRESHOLD = 0.5 ;
@@ -33,13 +33,12 @@ const float VFOV = 56.34;
 const float PIXEL_SIZE = 0.0028;
 const std::vector<int> RESOLUTION = {1280,720};
 
-/**
- * @brief The code for this demo file is all embedded only in the 'main'
- * function.
- *
- * @return * int
- */
 
+/**
+ * @brief Creating 'Detector' and 'Tracker' objects and calling their functions and share information to run the demo.
+ * 
+ * @return * int 
+ */
 int main() { 
     std::vector<std::string> yolo_classes;
     std::ifstream read_input(CLASSLIST_PATH);
@@ -55,7 +54,7 @@ int main() {
     cap.set(cv::CAP_PROP_FRAME_WIDTH, 1280);
     cap.set(cv::CAP_PROP_FRAME_HEIGHT,720);
     if(!cap.isOpened()){
-        cout << "Error opening video stream or file" << endl;
+        std::cout << "Error opening video stream or file" << std::endl;
         return -1;
     }
     //Create tracker object
@@ -75,7 +74,7 @@ int main() {
         //Plot coordinates on frame
         cv::Mat final_frame = human_tracker->plot_coordinates(prediction_pixels, coordinates, output.boxed_img);
         //Display the frame
-        cv::imshow( "Frame", final_frame );
+        cv::imshow("Frame", final_frame);
         char c=(char)cv::waitKey(25);
         if(c==27)
             break;
@@ -84,6 +83,5 @@ int main() {
     cap.release();
     // Closes all the frames
     cv::destroyAllWindows();
-    return 0; 
-
+    return 0;
 }

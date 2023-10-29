@@ -1,21 +1,28 @@
 /**
  * @file detector_implementation.cpp
  * @author Vikram Setty (vikrams@umd.edu)
- * @brief This file contains the implementations for each of the instace member
- * functions of the 'Detector' class of HDAL's human detector.
+ * @brief The file that fills in the stubs (empty placeholders) initialized in 'detector_header.hpp' with the actual methods.
  * @version 0.1
- * @date 2023-10-22
- *
+ * @date 2023-10-29
+ * 
  * @copyright Copyright (c) 2023
- *
+ * 
  */
 #include "detector_header.hpp"
-#include <opencv2/dnn/dnn.hpp>
 
+/**
+ * @brief The constructor for the Detector class that initializes the YOLO v5 model, threshold values, and other instance member variables of the class.
+ * 
+ */
 Detector::Detector(cv::dnn::Net yolo_model, int yolo_img_width, int yolo_img_height,
            float confidence_threshold, float nms_threshold, float score_threshold, int yolo_grid_cells, std::vector<std::string> yolo_classes): yolo_model{yolo_model}, yolo_img_size{cv::Size(yolo_img_width,yolo_img_height)},confidence_threshold{confidence_threshold},nms_threshold{nms_threshold},score_threshold{score_threshold},yolo_grid_cells{yolo_grid_cells},yolo_classes{yolo_classes}{
 }
 
+/**
+ * @brief A function to preprocess the video frame (by resizing, reshaping, scaling, formatting, etc) before feeding it to YOLO v5.
+ * 
+ * @return * cv::Mat The 'blob' image ready to be fed to the YOLO v5 model
+ */
 cv::Mat Detector::preprocess_img(){
     cv::Mat blob ;
     float pixel_scaling = 1.0/255.0 ;
@@ -23,6 +30,14 @@ cv::Mat Detector::preprocess_img(){
     return blob ;
 }
 
+/**
+ * @brief A function to identify the true bounding boxes (using non-max suppression - NMS) and draw them on the video frame along with storing information of the bottom-middle pixel (necessary information for the Tracker) of each bounding box.
+ * 
+ * @param boxes Bounding box information (before NMS)
+ * @param confidence_values Confidence value for each bounding box
+ * @param box_pixels Bottom-middle pixel information for each bounding box (after NMS)
+ * @return * void 
+ */
 void Detector::get_bounding_boxes(std::vector<cv::Rect> boxes, std::vector<float> confidence_values, std::vector<cv::Point> &box_pixels){
     std::vector<int> indices ;
     for(int i=0; i<boxes.size(); i++){
@@ -36,7 +51,13 @@ void Detector::get_bounding_boxes(std::vector<cv::Rect> boxes, std::vector<float
     }
 }
 
-DetectorOutput Detector::postprocess_img(std::vector<cv::Mat> yolo_outputs) {
+/**
+ * @brief A function to analyze the output of the YOLO v5 model run on the pre-processed video frame by identifying confidence and class scores along with bounding box and pixel information.
+ * 
+ * @param yolo_outputs The output vector of running the YOLO v5 model on the pre-processed video frame
+ * @return * DetectorOutput The final output of the Detector object, ready to be given to the Tracker
+ */
+DetectorOutput Detector::postprocess_img(std::vector<cv::Mat> yolo_outputs){
     std::vector<int> classIDs ;
     std::vector<float> confidence_values ;
     std::vector<cv::Rect> boxes ;
@@ -72,6 +93,12 @@ DetectorOutput Detector::postprocess_img(std::vector<cv::Mat> yolo_outputs) {
     return final_answer ;
 }
 
+/**
+ * @brief A function that makes function calls to preprocess the video frame, run the YOLO model, and post-process the image.
+ * 
+ * @param video_frame The video frame from the camera of the system/robot
+ * @return * DetectorOutput The final output of the Detector object, ready to be given to the Tracker
+ */
 DetectorOutput Detector::detect_humans(cv::Mat video_frame) {
     img = video_frame ;
     boxed_img = video_frame.clone() ;
@@ -84,4 +111,8 @@ DetectorOutput Detector::detect_humans(cv::Mat video_frame) {
     return final_output ;
 }
 
-Detector::~Detector() {}
+/**
+ * @brief The destructor for the Detector class that deallocates any dynamically allocated memory for an object of the class.
+ * 
+ */
+Detector::~Detector(){}
