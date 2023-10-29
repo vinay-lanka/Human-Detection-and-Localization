@@ -1,13 +1,12 @@
 /**
  * @file detector_header.hpp
  * @author Vikram Setty (vikrams@umd.edu)
- * @brief This file contains the skeleton of the 'Detector' class which performs
- * human detection using YOLO v5 in HDAL.
+ * @brief The header file for the human obstacle detector with all the instance member variables and functions.
  * @version 0.1
- * @date 2023-10-22
- *
+ * @date 2023-10-29
+ * 
  * @copyright Copyright (c) 2023
- *
+ * 
  */
 #include <opencv2/dnn.hpp>
 #include <opencv2/imgproc.hpp>
@@ -15,6 +14,10 @@
 
 #pragma once
 
+/**
+ * @brief A data structure for the Detector to return the exact information required by the Tracker.
+ * 
+ */
 struct DetectorOutput{
 
   std::vector<cv::Point> pixels ;
@@ -23,10 +26,8 @@ struct DetectorOutput{
 } ;
 
 /**
- * @brief The 'Detector' class takes a video frame, preprocesses it, runs it
- * through YOLO v5, postprocesses it, and returns the final image and bounding
- * box information.
- *
+ * @brief The Detector class that takes a video frame and returns the image with bounding box drawn over it along with pixel information for the Tracker to use.
+ * 
  */
 class Detector {
  private:
