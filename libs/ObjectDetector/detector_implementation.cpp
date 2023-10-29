@@ -14,20 +14,16 @@
 
 Detector::Detector(cv::dnn::Net yolo_model, int yolo_img_width, int yolo_img_height,
            float confidence_threshold, float nms_threshold, float score_threshold, int yolo_grid_cells, std::vector<std::string> yolo_classes): yolo_model{yolo_model}, yolo_img_size{cv::Size(yolo_img_width,yolo_img_height)},confidence_threshold{confidence_threshold},nms_threshold{nms_threshold},score_threshold{score_threshold},yolo_grid_cells{yolo_grid_cells},yolo_classes{yolo_classes}{
-
 }
 
 cv::Mat Detector::preprocess_img(){
-
     cv::Mat blob ;
     float pixel_scaling = 1.0/255.0 ;
     cv::dnn::blobFromImage(img,blob,pixel_scaling,yolo_img_size,cv::Scalar(),true,false) ;
     return blob ;
-
 }
 
-void Detector::draw_bounding_boxes(std::vector<cv::Rect> boxes, std::vector<float> confidence_values){
-
+void Detector::get_bounding_boxes(std::vector<cv::Rect> boxes, std::vector<float> confidence_values, std::vector<cv::Point> &box_pixels){
     std::vector<int> indices ;
     for(int i=0; i<boxes.size(); i++){
         cv::dnn::NMSBoxes(boxes,confidence_values,score_threshold,nms_threshold,indices);
@@ -36,16 +32,16 @@ void Detector::draw_bounding_boxes(std::vector<cv::Rect> boxes, std::vector<floa
         cv::Rect current_box = boxes[indices[i]] ;
         int left = current_box.x, top = current_box.y, width = current_box.width, height = current_box.height ;
         rectangle(boxed_img,cv::Point(left,top),cv::Point(left+width,top+height),cv::Scalar(0, 0, 255),3);
+        box_pixels.push_back(cv::Point(left + width/2, top + height)) ;
     }
-
 }
 
 DetectorOutput Detector::postprocess_img(std::vector<cv::Mat> yolo_outputs) {
     std::vector<int> classIDs ;
     std::vector<float> confidence_values ;
     std::vector<cv::Rect> boxes ;
-    float x_scaling = original_img_size.width/yolo_img_size.width ;
-    float y_scaling = original_img_size.height/yolo_img_size.height ;
+    float x_scaling = (float)original_img_size.width/yolo_img_size.width ;
+    float y_scaling = (float)original_img_size.height/yolo_img_size.height ;
     float *info = reinterpret_cast<float*>(yolo_outputs[0].data);
     for(int i=0; i<yolo_grid_cells; i++){
         float grid_cell_confidence = info[4] ;
@@ -68,12 +64,8 @@ DetectorOutput Detector::postprocess_img(std::vector<cv::Mat> yolo_outputs) {
         }
         info += yolo_classes.size() + 5 ; ;
     }
-    draw_bounding_boxes(boxes,confidence_values) ;
     std::vector<cv::Point> box_pixels ;
-    for(int i=0; i<boxes.size(); i++){
-        int left = boxes[i].x, top = boxes[i].y, width = boxes[i].width, height = boxes[i].height ;
-        box_pixels.push_back(cv::Point(left + width/2, top + height)) ;
-    }
+    get_bounding_boxes(boxes,confidence_values,box_pixels) ;
     DetectorOutput final_answer ;
     final_answer.boxed_img = boxed_img ;
     final_answer.pixels = box_pixels ;

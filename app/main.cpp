@@ -12,7 +12,7 @@ const float YOLO_IMG_HEIGHT = 640.0 ;
 
 const float CONFIDENCE_THRESHOLD = 0.45 ;
 const float NMS_THRESHOLD = 0.45 ;
-const float SCORE_THRESHOLD = 0.45 ;
+const float SCORE_THRESHOLD = 0.5 ;
 const int YOLO_GRID_CELLS = 25200 ;
 
 int main(){
@@ -25,6 +25,8 @@ int main(){
         yolo_classes.push_back(text) ;
     }
     cv::VideoCapture capture_frame(0);
+    capture_frame.set(cv::CAP_PROP_FRAME_WIDTH, 1280);
+    capture_frame.set(cv::CAP_PROP_FRAME_HEIGHT,720);
     cv::Mat video_frame;
     cv::dnn::Net yolo_model = cv::dnn::readNet(MODEL_PATH) ;
     Detector detector(yolo_model,YOLO_IMG_WIDTH,YOLO_IMG_HEIGHT,CONFIDENCE_THRESHOLD,NMS_THRESHOLD,SCORE_THRESHOLD,YOLO_GRID_CELLS,yolo_classes) ;
@@ -32,8 +34,12 @@ int main(){
         capture_frame.read(video_frame);
         DetectorOutput output = detector.detect_humans(video_frame) ;
         cv::imshow("Output Image",output.boxed_img) ;
-        cv::waitKey(1);
+        char c=(char)cv::waitKey(1);
+        if(c==27)
+            break;
     }
+    capture_frame.release();
+    cv::destroyAllWindows();
     return 0;
 
 }

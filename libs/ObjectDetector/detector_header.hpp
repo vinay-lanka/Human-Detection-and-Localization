@@ -41,7 +41,7 @@ class Detector {
   cv::Mat boxed_img ;
   std::vector<std::string> yolo_classes ;
   cv::Mat preprocess_img();
-  void draw_bounding_boxes(std::vector<cv::Rect> boxes, std::vector<float> confidence_values) ;
+  void get_bounding_boxes(std::vector<cv::Rect> boxes, std::vector<float> confidence_values, std::vector<cv::Point> &box_pixels) ;
   DetectorOutput postprocess_img(std::vector<cv::Mat> yolo_outputs);
 
  public:
