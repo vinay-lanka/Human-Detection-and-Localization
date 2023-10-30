@@ -3,7 +3,7 @@ name: HDAL Tests
 on:
   # Triggered whenever push to main 
   push:
-    branches: [ "iteration1" ]
+    branches: [ "unit_test_iteration2" ]
 
   # Triggered whenever a pull request is created on main
   pull_request:
@@ -33,7 +33,6 @@ jobs:
       - name: Dependency
         run: |
           sudo apt install libopencv-dev
-          sudo apt install libeigen3-dev
           
       # Build, run unit test, and generate coverage report
       - name: Configure CMake flags and build exectables
