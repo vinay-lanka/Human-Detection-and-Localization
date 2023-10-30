@@ -8,7 +8,7 @@
 
 This repository contains the deliverables for the Midterm Project of **Vikram Setty** (119696897) and **Vinay Lanka** (12041665) as a part of the course *ENPM808X: Software Development for Robotics* at the University of Maryland.
 
-## Phase 1
+## Phase 2
 
 ### Project Overview
 We present HDAL (Human Detection and Localization), a perception system for Acme Robotics’ delivery robot group. This project would give delivery robots the capability to detect and localize humans moving in front of them as they move on sidewalks delivering packages to the front doors of houses. The software would help the robot understand its surroundings and provide information to its path planners to choose an appropriate trajectory to move along.
@@ -71,6 +71,8 @@ To generate and view the Doxygen documentation of the project, run the following
 
 To try a demo of HDAL on your system's webcam, execute the following commands.
 ``` bash
+# Change your working directory to the 'build' folder:
+  cd build/
 # Execute the 'app/main.cpp' file to see a demo run of HDAL on your system's webcam:
   ./build/app/HDAL_demo
 ```
@@ -136,14 +138,22 @@ This can be self-verified as well by running the following command in the highes
 
 On running the above command, you should see the same output in the `results/cppcheck_output.txt` file.
 
+## Phase 1
+
+Phase 1 of the project involves building the directory structure, writing the class headers and stubs, and writing preliminary unit tests. It also involves getting GitHub Continuous Integration (CI), Code Coverage (codecov), and a license (MIT) along with their respective badges ready. All this is done using pair programming for test-driven development (TDD) using the Agile Iterative Process (AIP) software development model. 
+
+A short video providing a brief overview of the first phase of the project and the details explaining the AIP process used is embedded below. A direct link to the same can also be found [here](https://www.youtube.com/watch?v=Eoj4YyOxvfU).
+
+[![Video](https://i3.ytimg.com/vi/Eoj4YyOxvfU/maxresdefault.jpg)](https://www.youtube.com/watch?v=Eoj4YyOxvfU)
+
 ## Phase 0
 
-The Phase 0 project report, `Proposal/Phase 0 Proposal.pdf` elicits the detailed plan, and vision, along with implementation specifics for the project. All aspects of the standard software plan are covered and explained in the analysis.
+Phase 0 involves the proposal for the project, along with information about the AIP model that would be used for software development in the project.
 
-The quad chart for this project, `Proposal/Phase 0 Quad Chart.pdf` describes the product, stakeholders, capabilities, and measures of success for the project. It is an important aspect of the Agile Iterative Process (AIP) methodology that would be followed throughout the duration of the project.
+The Phase 0 project report, `proposal/Phase 0 Proposal.pdf` elicits the detailed plan, and vision, along with implementation specifics for the project. All aspects of the standard software plan are covered and explained in the analysis.
 
-Further, a short video providing a brief overview of the project and the details explained in the report and quad chart is embedded below.
+The quad chart for this project, `proposal/Phase 0 Quad Chart.pdf` describes the product, stakeholders, capabilities, and measures of success for the project. It is an important aspect of the Agile Iterative Process (AIP) methodology that would be followed throughout the duration of the project.
+
+Further, a short video providing a brief overview of the project and the details explained in the report and quad chart is embedded below. To access the video directly from a link, please click [here](https://www.youtube.com/watch?v=uGA3f2nemRw).
 
 [![Video](https://i3.ytimg.com/vi/uGA3f2nemRw/maxresdefault.jpg)](https://www.youtube.com/watch?v=uGA3f2nemRw)
-
-To access the video directly from a link, please click [here](https://www.youtube.com/watch?v=uGA3f2nemRw).
