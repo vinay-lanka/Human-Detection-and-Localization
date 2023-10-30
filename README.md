@@ -22,24 +22,27 @@ The authors of HDAL are Vikram Setty and Vinay Lanka, both robotics graduate stu
 
 Vikram is from Hyderabad, India, and has done his bachelor's and master's degrees with a major in mechanical engineering and a minor in computer science from IIT Ropar. His research interests include perception, navigation, and path planning for robotics and autonomous systems. He is also interested in various areas in artificial intelligence and machine learning, especially computer vision and reinforcement learning.
 
-Vinay is from Hyderabad, India, and has done his bachelor's degree majoring in Electronics and Communication Engineering from VIT Vellore. He has 2 years of work experience in Robotics, having worked as a Robotics Engineer in Newspace Research and Technologies (Defence Aerospace) and as an R&D Engineer in Neoflux. He's interested in the areas of perception and planning of robots and also shares the common interest of Deep Learning and Computer Vision, especially in the field of Robotics.
+Vinay is from Hyderabad, India, and has done his bachelor's degree majoring in Electronics and Communication Engineering from VIT Vellore. He has two years of work experience in Robotics, having worked as a Robotics Engineer in Newspace Research and Technologies (Defence Aerospace) and as an R&D Engineer in Neoflux. He's interested in the areas of perception and planning of robots and also shares the common interest of Deep Learning and Computer Vision, especially in the field of Robotics.
 
 ### AIP Workflow Used
 This project was developed using the Agile Development Process (AIP) along with pair programming (with a driver and navigator), with a focus on test-driven development (TDD). [This](https://docs.google.com/spreadsheets/d/1gvZUOzwOqA3FOt5ZHsv915nfBdFb774tYE5_qxB7flM/edit?usp=sharing) sheet has the product backlog, iteration backlogs, and work log for each task done to develop HDAL. The end of each iteration is even tagged to distinguish each sprint. Further, the link to the sprint planning and review meeting notes devised to overview each iteration sprint to develop HDAL in the most efficient way possible is attached [here](https://docs.google.com/document/d/1QYD2clcA70ukrI24V-6_yM0eB3UJxSPIeIFpcA2wneI/edit?usp=sharing).
 
-The latest (Phase 1) developed UML class and activity diagrams can be found in the `UML/initial-phase-1` directory. The earlier devised UML diagrams as a part of Phase 0 are available in the `UML/initial-phase-0` directory. 
+The latest (Phase 2) developed UML class and activity diagrams can be found in the `UML/revised-phase-2` directory. The earlier devised UML diagrams as a part of Phase 1 and Phase 0 are available in the `UML/initial-phase-1` and `UML/initial-phase-0` directories. 
 
 A short video providing a brief overview of the project and the details explaining the AIP process used is embedded below. A direct link to the same can also be found [here](https://www.youtube.com/watch?v=Eoj4YyOxvfU).
 
 [![Video](https://i3.ytimg.com/vi/Eoj4YyOxvfU/maxresdefault.jpg)](https://www.youtube.com/watch?v=Eoj4YyOxvfU)
 
-### Installing Dependencies
-To install the dependencies for this project (ONNX, OpenCV, and Eigen), simply run the two commands below on an Ubuntu system (confirmed to work on Ubuntu 22.04).
+### Dependencies, Models, and Libraries
+This project makes use of the OpenCV library (their official website can be found [here]()) for using computer vision functionalities and tools. HDAL also uses a YOLO v5 model (initially developed by Joseph Redmon, more information about which is linked [here](https://pjreddie.com/darknet/yolo/)). This deep-learning based object detection model helps HDAL detect humans from a continuous video feed from where further tracking is done. The YOLO v5 model is used by accessing its weights through a ONNX model that was generated from a PyTorch YOLO v5s model. This was done using [this](https://github.com/ultralytics/yolov5/releases) tutorial.
+
+All of these libraries are integral to the working of HDAL and form a very important part of its mechansim. While OpenCV is fundamental to dealing with images (resizing, reshaping, scaling, formatting, etc), YOLO is the current benchmark for object detection and provides the best platform to track human coordinates from. Using the YOLO v5 model in an ONNX format is a good way to maintain uniformity and get access to easier methods and more flexible options in dealing with the model outputs on running object detection.
+
+### Installing the Dependencies
+To install the dependencies for this project (ONNX and OpenCV), simply run the command below on an Ubuntu system (confirmed to work on Ubuntu 22.04).
 ```sh
-# Install OpenCV with root privileges:
+# Install OpenCV with root privileges (has the required headers for ONNX as well):
   sudo apt install libopencv-dev
-# Install Eigen with root privileges:
-  sudo apt install libeigen3-dev
 ```
 
 ### Building the Code
@@ -51,9 +54,9 @@ To build the project, execute the following commands.
   cmake -S ./ -B build/
 # Compile and build the code to the 'build' directory from scratch:
   cmake --build build/ --clean-first
-# Clean the 'build' directory:
+# [When done with HDAL/need to rebuild] Clean the 'build' directory:
   cmake --build build/ --target clean
-# Remove the 'build' directory to rebuild the project if necessary:
+# [When done with HDAL/need to rebuild] Delete the 'build' directory:
   rm -rf build/
 ```
 
