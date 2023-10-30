@@ -1,7 +1,7 @@
 # Human-Detection-and-Localization
 
 [![HDAL Tests](https://github.com/vinay-lanka/Human-Detection-and-Localization/actions/workflows/test.yaml/badge.svg)](https://github.com/vinay-lanka/Human-Detection-and-Localization/actions/workflows/test.yaml)
-[![Codecov](https://codecov.io/gh/vinay-lanka/Human-Detection-and-Localization/graph/badge.svg?token=fQ4Z6RwMFH)](https://codecov.io/gh/vinay-lanka/Human-Detection-and-Localization)
+[![codecov](https://codecov.io/gh/vinay-lanka/Human-Detection-and-Localization/graph/badge.svg?token=fQ4Z6RwMFH)](https://codecov.io/gh/vinay-lanka/Human-Detection-and-Localization)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 **HDAL**: A robust perception stack for delivery robots to navigate sidewalks by detecting and localizing human obstacles.
