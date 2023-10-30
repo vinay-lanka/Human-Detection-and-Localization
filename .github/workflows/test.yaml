@@ -3,7 +3,7 @@ name: HDAL Tests
 on:
   # Triggered whenever push to main 
   push:
-    branches: [ "unit_test_iteration2" ]
+    branches: [ "iteration2" ]
 
   # Triggered whenever a pull request is created on main
   pull_request:
