@@ -112,7 +112,7 @@ cv::Mat Tracker::plot_coordinates(std::vector<cv::Point>  prediction_pixels, std
     cv::circle(frame, pt, 1, cv::Scalar(0, 255, 0), 2, 8, 0);
     std::string text = to_string_with_precision(coordinates[i][0], 2) + "," + to_string_with_precision(coordinates[i][1],2) + "," + to_string_with_precision(coordinates[i][2],2);
     // cout << test[0][1];
-    cv::putText(frame, text, pt, cv::FONT_HERSHEY_SIMPLEX , 1, {0,0,255});
+    cv::putText(frame, text, pt, cv::FONT_HERSHEY_SIMPLEX , 1, {125, 246, 55}, 3);
    }
   return frame;
 }

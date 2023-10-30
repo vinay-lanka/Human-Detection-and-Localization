@@ -72,12 +72,10 @@ To generate and view the Doxygen documentation of the project, run the following
 
 ### Running the Program Executables
 
-To try a demo of HDAL on your system's webcam, execute the following commands.
+To try a demo of HDAL on your system's webcam, execute the following commands. You should first know the input device `/dev/video0` in our case and measure the height of the camera. We will need this as command line arguments.
 ``` bash
-# Change your working directory to the 'build' folder:
-  cd build/
 # Execute the 'app/main.cpp' file to see a demo run of HDAL on your system's webcam:
-  ./build/app/HDAL_demo
+  ./build/app/HDAL_demo '/dev/video0' 0.762
 ```
 
 ### Running Unit Tests

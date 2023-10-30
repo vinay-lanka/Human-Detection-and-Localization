@@ -11,13 +11,14 @@
  */
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "detector_header.hpp"
 #include "tracker_header.hpp"
 
 
 //Parameters to initialise detector object
-const std::string CLASSLIST_PATH = "../data/coco.names" ;
-const std::string MODEL_PATH = "../model/yolov5s.onnx" ;
+const std::string CLASSLIST_PATH = "./data/coco.names" ;
+const std::string MODEL_PATH = "./model/yolov5s.onnx" ;
 const float YOLO_IMG_WIDTH = 640.0 ;
 const float YOLO_IMG_HEIGHT = 640.0 ;
 const float CONFIDENCE_THRESHOLD = 0.45 ;
@@ -26,7 +27,7 @@ const float SCORE_THRESHOLD = 0.5 ;
 const int YOLO_GRID_CELLS = 25200 ;
 
 //Parameters to initialise tracker object
-const float HEIGHT = 0.762;
+float HEIGHT = 0.762;
 const float FOCAL_LENGTH = 1.898;
 const float HFOV = 100.11;
 const float VFOV = 56.34;
@@ -39,7 +40,11 @@ const std::vector<int> RESOLUTION = {1280,720};
  * 
  * @return * int 
  */
-int main() { 
+int main(int argc, char* argv[]) { 
+    //Use command line arguments to initialise camera and height
+    std::string capture_device = argv[1];
+    HEIGHT = std::stof(argv[2]);
+    //Initialise Detector
     std::vector<std::string> yolo_classes;
     std::ifstream read_input(CLASSLIST_PATH);
     std::string text;
@@ -50,7 +55,7 @@ int main() {
     cv::dnn::Net yolo_model = cv::dnn::readNet(MODEL_PATH) ;
     Detector detector(yolo_model,YOLO_IMG_WIDTH,YOLO_IMG_HEIGHT,CONFIDENCE_THRESHOLD,NMS_THRESHOLD,SCORE_THRESHOLD,YOLO_GRID_CELLS,yolo_classes) ;
     //Initialise Camera
-    cv::VideoCapture cap("/dev/video0");
+    cv::VideoCapture cap(capture_device);
     cap.set(cv::CAP_PROP_FRAME_WIDTH, 1280);
     cap.set(cv::CAP_PROP_FRAME_HEIGHT,720);
     if(!cap.isOpened()){

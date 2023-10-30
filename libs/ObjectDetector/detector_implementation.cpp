@@ -46,7 +46,7 @@ void Detector::get_bounding_boxes(std::vector<cv::Rect> boxes, std::vector<float
     for(int i=0; i<indices.size(); i++){
         cv::Rect current_box = boxes[indices[i]] ;
         int left = current_box.x, top = current_box.y, width = current_box.width, height = current_box.height ;
-        rectangle(boxed_img,cv::Point(left,top),cv::Point(left+width,top+height),cv::Scalar(0, 0, 255),3);
+        rectangle(boxed_img,cv::Point(left,top),cv::Point(left+width,top+height),cv::Scalar(0, 128, 255),3);
         box_pixels.push_back(cv::Point(left + width/2, top + height)) ;
     }
 }
