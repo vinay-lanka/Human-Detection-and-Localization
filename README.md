@@ -31,7 +31,7 @@ The latest (Phase 2) developed UML class and activity diagrams can be found in t
 
 A short video providing a brief overview of the project and the details explaining the AIP process used is embedded below. A direct link to the same can also be found [here](https://www.youtube.com/watch?v=Eoj4YyOxvfU).
 
-[![Video](https://i3.ytimg.com/vi/Eoj4YyOxvfU/maxresdefault.jpg)](https://www.youtube.com/watch?v=Eoj4YyOxvfU)
+[![Video](https://i3.ytimg.com/vi/6D_xVzv4fGo/maxresdefault.jpg)](https://www.youtube.com/watch?v=6D_xVzv4fGo)
 
 ### Dependencies, Models, and Libraries
 This project makes use of the OpenCV library (their official website can be found [here]()) for using computer vision functionalities and tools. HDAL also uses a YOLO v5 model (initially developed by Joseph Redmon, more information about which is linked [here](https://pjreddie.com/darknet/yolo/)). This deep-learning based object detection model helps HDAL detect humans from a continuous video feed from where further tracking is done. The YOLO v5 model is used by accessing its weights through a ONNX model that was generated from a PyTorch YOLO v5s model. This was done using [this](https://github.com/ultralytics/yolov5/releases) tutorial.
@@ -70,11 +70,20 @@ To generate and view the Doxygen documentation of the project, run the following
   open docs/html/index.html
 ```
 
-### Running the Program Executables
+### Running the Program Executables (Project Demo Run)
 
-To try a demo of HDAL on your system's webcam, execute the following commands. You should first know the input device `/dev/video0` in our case and measure the height of the camera. We will need this as command line arguments.
+To run the demo code of the project (Running HDAL on any camera), the following command is to be executed.
 ``` bash
-# Execute the 'app/main.cpp' file to see a demo run of HDAL on your system's webcam:
+# Run a demo of HDAL on your computer system:
+  ./build/app/HDAL_demo [camera_device] [camera_height]
+```
+In this command the two arguments provided are explained below.
+- `camera_device` refers to to the name of the camera on your system. For most computer systems, `/dev/video0` refers to the system's built-in webcam. If you want to run HDAL from an external camera, you would need to check the name of the camera as assigned by your computer system and provide that as a single quotation marked string for this argument.
+- `camera_height` refers to the height of the camera (in meters) from the ground. Since HDAL assumes the camera to be placed at a constant and fixed height from the ground throughout its running, it is important for this value to be accurate for HDAL to give precise and correct relative coordinates of each human obstacle in its field of view (FOV).
+
+An example of a command to get HDAL running on your system using the built-in webcam (assuming a random camera height) would look like the one shown below.
+``` bash
+# An example demo run command to run HDAL on your system's webcam:
   ./build/app/HDAL_demo '/dev/video0' 0.762
 ```
 
@@ -113,7 +122,7 @@ This generates an `index.html` page in the `build/app_coverage` sub-directory th
 
 
 ### Google Coding Style Verification
-To check how the written code conforms to the Google C++ style guide, look at the `results/cpplint_output.txt` file to see the output on using the *Cpplint* tool on this project. You should not be able to see any issues or problems, with all the files processed successfully.
+To check how the written code conforms to the Google C++ style guide, look at the `results/cpplint_output.txt` and `results/cpplint_output.png` files to see the output on using the *Cpplint* tool on this project. You should not be able to see any issues or problems, with all the files processed successfully.
 
 This can be self-verified as well by running the following command in the highest-level directory of the project.
 ```sh
@@ -127,14 +136,14 @@ On running the above command, you should see the same output in the `results/cpp
 
 
 ### Static Code Analysis
-To check the static code analysis of this project, check the `results/cppcheck_output.txt` file to see the output on using the *Cppcheck* tool. You should not be able to see any issues or problems, with all the files checked successfully.
+To check the static code analysis of this project, check the `results/cppcheck_output.txt` and `results/cppcheck_output.png` files to see the output on using the *Cppcheck* tool. You should not be able to see any issues or problems, with all the files checked successfully.
 
 This can be self-verified as well by running the following command in the highest-level directory of the project.
 ```sh
 # Install Cppcheck (ignore if already installed):
   sudo apt install cppcheck
 # Self-check the static code analysis using Cppcheck:
-  cppcheck --enable=all --std=c++11 --suppress=missingInclude $( find . -name *.cpp | grep -vE -e "^./build/" )
+  cppcheck --enable=all --std=c++11 --suppress=missingInclude --suppress=unusedFunction $( find . -name *.cpp | grep -vE -e "^./build/" )
 ```
 
 On running the above command, you should see the same output in the `results/cppcheck_output.txt` file.
@@ -158,3 +167,8 @@ The quad chart for this project, `proposal/Phase 0 Quad Chart.pdf` describes the
 Further, a short video providing a brief overview of the project and the details explained in the report and quad chart is embedded below. To access the video directly from a link, please click [here](https://www.youtube.com/watch?v=uGA3f2nemRw).
 
 [![Video](https://i3.ytimg.com/vi/uGA3f2nemRw/maxresdefault.jpg)](https://www.youtube.com/watch?v=uGA3f2nemRw)
+
+### References
+- [YOLO v5 ONNX model source/tutorial](https://github.com/ultralytics/yolov5/releases)
+- [YOLO v5 class names list](https://github.com/pjreddie/darknet/blob/master/data/coco.names)
+- [Object Detector test image](https://docs.opencv.org/4.x/dc/dff/tutorial_py_pyramids.html)
