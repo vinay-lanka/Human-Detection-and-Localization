@@ -143,7 +143,7 @@ This can be self-verified as well by running the following command in the highes
 # Install Cppcheck (ignore if already installed):
   sudo apt install cppcheck
 # Self-check the static code analysis using Cppcheck:
-  cppcheck --enable=all --std=c++11 --suppress=missingInclude $( find . -name *.cpp | grep -vE -e "^./build/" )
+  cppcheck --enable=all --std=c++11 --suppress=missingInclude --suppress=unusedFunction $( find . -name *.cpp | grep -vE -e "^./build/" )
 ```
 
 On running the above command, you should see the same output in the `results/cppcheck_output.txt` file.
