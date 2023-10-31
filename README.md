@@ -122,7 +122,7 @@ This generates an `index.html` page in the `build/app_coverage` sub-directory th
 
 
 ### Google Coding Style Verification
-To check how the written code conforms to the Google C++ style guide, look at the `results/cpplint_output.txt` file to see the output on using the *Cpplint* tool on this project. You should not be able to see any issues or problems, with all the files processed successfully.
+To check how the written code conforms to the Google C++ style guide, look at the `results/cpplint_output.txt` and `results/cpplint_output.png` files to see the output on using the *Cpplint* tool on this project. You should not be able to see any issues or problems, with all the files processed successfully.
 
 This can be self-verified as well by running the following command in the highest-level directory of the project.
 ```sh
@@ -136,7 +136,7 @@ On running the above command, you should see the same output in the `results/cpp
 
 
 ### Static Code Analysis
-To check the static code analysis of this project, check the `results/cppcheck_output.txt` file to see the output on using the *Cppcheck* tool. You should not be able to see any issues or problems, with all the files checked successfully.
+To check the static code analysis of this project, check the `results/cppcheck_output.txt` and `results/cppcheck_output.png` files to see the output on using the *Cppcheck* tool. You should not be able to see any issues or problems, with all the files checked successfully.
 
 This can be self-verified as well by running the following command in the highest-level directory of the project.
 ```sh
